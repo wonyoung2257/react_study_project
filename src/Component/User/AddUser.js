@@ -24,7 +24,7 @@ const AddUser = (props) => {
       alert("나이값이 0보다 작습니다");
       return;
     }
-    props.onAddUserData({ userName: userName, age: userAge });
+    props.onAddUser(userName, userAge);
     setUserName("");
     setUserAge("");
   };
