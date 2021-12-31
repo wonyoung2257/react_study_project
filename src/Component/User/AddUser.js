@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "../../Component/UI/Button";
 import Card from "../UI/Card";
 import styles from "./AddUser.module.css";
 
@@ -13,7 +14,7 @@ const AddUser = (props) => {
         <input id="username" type="text" />
         <label htmlFor="userage">Age (Years)</label>
         <input id="userage" type="number" />
-        <button type="submit">추가하기</button>
+        <Button type="submit" content="추가하기"></Button>
       </form>
     </Card>
   );
