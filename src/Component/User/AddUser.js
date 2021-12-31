@@ -1,20 +1,28 @@
-import { useState } from "react";
+import { useRef } from "react";
 import Button from "../../Component/UI/Button";
 import Card from "../UI/Card";
 import styles from "./AddUser.module.css";
 
 const AddUser = (props) => {
+  const userNameRef = useRef();
+  const userAgeRef = useRef();
+
   const submitHenbler = (e) => {
     e.preventDefault();
+  };
+  const addUserData = () => {
+    props.onAddUser(userNameRef.current.value, userAgeRef.current.value);
+    userNameRef.current.value = "";
+    userAgeRef.current.value = "";
   };
   return (
     <Card className={styles.input}>
       <form onSubmit={submitHenbler}>
         <label htmlFor="username">Username</label>
-        <input id="username" type="text" />
+        <input id="username" type="text" ref={userNameRef} />
         <label htmlFor="userage">Age (Years)</label>
-        <input id="userage" type="number" />
-        <Button type="submit" content="추가하기"></Button>
+        <input id="userage" type="number" ref={userAgeRef} />
+        <Button type="submit" content="추가하기" onClick={addUserData}></Button>
       </form>
     </Card>
   );
