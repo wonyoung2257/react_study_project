@@ -7,9 +7,8 @@ function App() {
 
   const addUserDataHanbler = (name, age) => {
     setUserData((prevData) => {
-      return [...prevData, { name: name, age: age }];
+      return [...prevData, { name: name, age: age, id: Math.random().toString() }];
     });
-    console.log(userData);
   };
   return (
     <>
