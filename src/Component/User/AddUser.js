@@ -11,6 +11,14 @@ const AddUser = (props) => {
     e.preventDefault();
   };
   const addUserData = () => {
+    if (userNameRef.current.value.trim().length === 0 || userAgeRef.current.value.trim().length === 0) {
+      alert("입력해주세요");
+      return;
+    }
+    if (userAgeRef.current.value < 1) {
+      alert("나이를 제대로 입력해주세요 (1이상 값)");
+      return;
+    }
     props.onAddUser(userNameRef.current.value, userAgeRef.current.value);
     userNameRef.current.value = "";
     userAgeRef.current.value = "";
